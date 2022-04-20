@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const SearchBar = () => {
-  return (
-    <div className='ui segment'>
-        <form className='ui form'>
-            <div className='field'>
-                <label>Image Search</label>
-                <input type="text" />
+class SearchBar extends Component {
+
+    render(){
+        return (
+            <div className='ui segment'>
+                <form className='ui form'>
+                    <div className='field'>
+                        <label>Image Search</label>
+                        <input type="text" onChange={this.onInputChange}/>
+                    </div>
+                </form>
             </div>
-        </form>
-    </div>
-  )
+        )
+    }
 }
 
 export default SearchBar;
