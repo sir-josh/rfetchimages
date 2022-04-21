@@ -7,6 +7,7 @@ class SearchBar extends Component {
         e.preventDefault();
 
         console.log(this.state.term);
+        this.props.onSubmit(this.state.term);
     }
 
     render(){
