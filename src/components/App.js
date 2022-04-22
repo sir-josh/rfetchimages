@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import unsplash from '../api/unsplash';
 import SearchBar from './SearchBar';
 
 class App extends Component {
@@ -8,14 +8,9 @@ class App extends Component {
     };
 
     onSearchSubmit = async(searchTerm) => {
-        const response = await axios.get('https://api.unsplash.com/search/photos', {
-            params: {
-                query: searchTerm
-            },
-            headers: {
-                Authorization: 'Client-ID abvIIykWJ32MXteDtcd-dPQZyFXp3RLYmQkgSCqdYhg'
-            }
-        })
+        const response = await unsplash.get('https://api.unsplash.com/search/photos', {
+            params: { query: searchTerm }
+        });
 
         this.setState({images: response.data.results });
     }
